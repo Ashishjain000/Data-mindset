@@ -1,0 +1,43 @@
+How to apply the Azure Well-Architected Framework on Data Platforms
+
+The Azure Well-Architected Framework guides us to design scalable, secure, and cost-effective systems. In an Azure-based data platform (ADF, Databricks, Delta Lake, Synapse), these pillars ensure technical excellence and business alignment.
+
+1. Reliability / Availability
+	•	Implement Disaster Recovery (DR) plan with RTO/RPO targets.
+	•	Configure multi-region replication (GRS/ZRS) in ADLS.
+	•	Use Delta Lake ACID transactions for consistency.
+	•	Enable checkpointing & retries in Spark streaming.
+
+2. Security
+	•	Apply RBAC + least privilege principle.
+	•	Enforce firewall, private endpoints, VNet integration; disable public access.
+	•	Encrypt data at rest & in transit.
+	•	Use Purview/Unity Catalog for sensitive data classification.
+	•	Protect PII data (masking/tokenization).
+	•	Store secrets in Key Vault.
+
+3. Cost Optimization
+	•	Right-size clusters: reserved/spot instances, auto-scaling.
+	•	Optimize compute usage (partitioning, caching, predicate pushdown).
+	•	Choose correct storage tiers (Hot, Cool, Archive).
+	•	Retain data for only required business periods.
+	•	Use Azure Cost Management for monitoring.
+	•	Apply real-time only when business-critical.
+
+4. Operational Excellence
+	•	Implement CI/CD with Azure DevOps.
+	•	Define release management + rollback strategy.
+	•	Build data quality checks at ingestion.
+	•	Maintain lineage & catalog with Purview/Unity Catalog.
+	•	Set up monitoring dashboards + Log Analytics alerts.
+	•	Conduct post-mortems & continuous improvement.
+
+5. Performance Efficiency
+	•	Use Adaptive Query Execution (AQE).
+	•	Apply Z-order / liquid clustering in Delta tables.
+	•	Enable auto-scaling clusters for variable loads.
+	•	Optimize Spark with partitioning & caching.
+	•	Push down queries to Synapse SQL pools or Parquet/Delta files.
+
+Conclusion:
+By applying these pillars, the platform remains secure, cost-optimized, resilient, and scalable—while delivering business value and governance.
