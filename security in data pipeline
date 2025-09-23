@@ -1,0 +1,44 @@
+✅ Reviewed Checklist (with improvements)
+	1.	Use Private Endpoints
+	•	Ensure all data services (ADLS, Synapse, Databricks, Key Vault, etc.) are connected via private endpoints.
+	•	Block internet routing for sensitive services.
+	2.	Disable Public Access
+	•	Disable anonymous/public access to storage accounts, databases, and APIs.
+	•	Use firewall rules and VNet integration.
+	3.	Fine-Grained Access Control (Principle of Least Privilege)
+	•	Use RBAC & ACLs to restrict access only to required identities.
+	•	Regularly review access.
+	4.	Encryption at Rest & In Transit
+	•	At rest: Use service-managed keys (default) or customer-managed keys (CMK).
+	•	In transit: Enforce TLS 1.2+.
+	5.	Data Masking / Tokenization
+	•	Use dynamic data masking or tokenization for sensitive PII/PCI data.
+	6.	Row-Level & Column-Level Security
+	•	Apply policies for multi-tenant or sensitive datasets.
+	•	Test for performance impact.
+	7.	Secrets & Credentials Management via Key Vault
+	•	Store all connection strings, SAS tokens, service principals, and certificates in Key Vault.
+	•	Rotate keys/secrets regularly.
+
+⸻
+
+🔒 Additional Security Controls (recommended to add)
+	8.	Audit & Monitoring
+	•	Enable diagnostic logs and activity monitoring (Azure Monitor, Sentinel, Purview).
+	•	Detect anomalies (e.g., unusual data exfiltration).
+	9.	Identity & Authentication
+	•	Use Managed Identities for services (ADF, Databricks, Synapse).
+	•	Enforce MFA for users.
+	10.	Data Loss Prevention (DLP)
+
+	•	Implement Purview or Microsoft Information Protection to classify sensitive data.
+
+	11.	Network Security
+
+	•	Use VNet injection for Databricks and Synapse.
+	•	Restrict outbound internet access.
+
+	12.	Pipeline Hardening
+
+	•	Validate input/output data (avoid malicious payloads).
+	•	Use separate environments (Dev/Test/Prod) with strict boundaries.
